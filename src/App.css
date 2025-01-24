@@ -1,0 +1,1051 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+button{
+  font-weight: bolder;
+  transition: all .2s linear;
+}
+body{
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(45deg, #2c3e50, #34495e, #1a1a1d, #3c3f41);
+  background-size: 400% 400%;
+  animation: slidingGradient 30s ease infinite;
+}
+ /* ----------- Nav Bar -------- */
+ /* Basic styling for NavBar */
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+}
+
+.navLogo {
+  font-size: 24px;
+  font-weight: bold;  
+  color: #ccc;
+  text-shadow: 1px 1px 2px rgb(20, 157, 255);
+  margin: 0;
+}
+
+.navbarrightside {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Styling for icons */
+.icon {
+  font-size: 24px;
+  color: #ccc;
+  text-shadow: 1px 1px 2px rgb(20, 157, 255);
+  transition: color 0.3s ease;
+}
+
+.iconoutline {
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.iconoutline.selected {
+  background-color: #000000;
+  
+}
+
+.icon:hover {
+  color: #007BFF;
+}
+
+.navbarrightside a {
+  text-decoration: none;
+}
+
+/* Media Queries for responsiveness */
+
+/* For small screens (less than 600px) */
+@media (max-width: 600px) {
+  .navBar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navLogo {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .navbarrightside {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .icon {
+    font-size: 20px;
+  }
+}
+
+/* For medium screens (600px - 900px) */
+@media (max-width: 900px) {
+  .navBar {
+    padding: 15px;
+  }
+
+  .navLogo {
+    font-size: 22px;
+  }
+
+  .navbarrightside {
+    gap: 18px;
+  }
+
+  .icon {
+    font-size: 22px;
+  }
+}
+
+/* For larger screens (greater than 900px) */
+@media (min-width: 900px) {
+  .navBar {
+    padding: 20px 40px;
+  }
+
+  .navLogo {
+    font-size: 24px;
+  }
+
+  .navbarrightside {
+    gap: 20px;
+  }
+
+  .icon {
+    font-size: 24px;
+  }
+}
+
+
+/* ---------------- Routes bar --------------- */
+.routesbar {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 35px;
+  box-shadow: 0 1px 2px rgb(45, 43, 43), -1px 0 2px rgb(45, 43, 43);
+  margin-bottom: 10px;
+}
+
+.routeitem {
+  list-style: none;
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 2px 15px;
+  transition: all 0.3s linear;
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.shiftBtn {
+  background-color: black;
+  color: white;
+  width: 80px;
+  height: 25px;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+}
+
+.shiftBtn:hover {
+  background-color: transparent;
+  color: black;
+}
+
+.shiftBtn:disabled {
+  background-color: gray;
+  border: 1px solid gray;
+  color: rgb(39, 37, 37);
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+
+  .shiftBtn {
+    font-size: .7rem;
+    width: 60px;
+  }
+
+  .routeitem {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+}
+
+ /* -------------- top products ----------- */
+ /* General container styles */
+.topProductsContainer {
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Category section */
+.categorySection {
+  margin-bottom: 2rem;
+}
+
+/* Category heading */
+.categoryHeading {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+/* Top 4 products container */
+.top4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Product card */
+.card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Product image */
+.productImage {
+  width: 100%;
+  height: auto;
+  max-height: 150px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+/* Product name */
+.productName {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #444;
+}
+
+/* Price */
+.price {
+  font-size: 1.2rem;
+  color: #e60023;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .top4 {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+  }
+
+  .categoryHeading {
+      font-size: 1.2rem;
+  }
+
+  .card {
+      padding: 0.8rem;
+  }
+
+  .productName {
+      font-size: 0.9rem;
+  }
+
+  .price {
+      font-size: 1rem;
+  }
+}
+
+
+ /* ------------- all products ------------- */
+ .allitems {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding-right: 10px;
+  width: 100vw;
+}
+
+.allitems .card {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  border-radius: 10px;
+  background-color: white;
+  border: 2px solid black;
+  box-shadow: 1px 1px 5px, -1px -1px 5px;
+}
+
+.allitems .card .LinkItem {
+  display: grid;
+  place-items: center;
+}
+
+.allitems .card img {
+  height: 100%;
+  width: 80%;
+  transition: all .3s linear;
+  transform: scale(.7);
+}
+
+.allitems .card img:hover {
+  transform: scale(1) rotate(-45deg);
+}
+
+/* Media Queries for responsiveness */
+
+/* For small screens (less than 600px) */
+@media (max-width: 600px) {
+  .allitems {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 20px; /* Smaller gap */
+  }
+
+  .allitems .card img {
+    width: 90%; /* Make images slightly bigger */
+    transform: scale(.8); /* Adjust image scale */
+  }
+}
+
+/* For medium screens (600px - 900px) */
+@media (max-width: 900px) {
+  .allitems {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    gap: 25px; /* Medium gap */
+  }
+
+  .allitems .card img {
+    width: 85%; /* Adjust image size */
+    transform: scale(.75); /* Adjust image scale */
+  }
+}
+
+/* For larger screens (greater than 900px) */
+@media (min-width: 900px) {
+  .allitems {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 30px; /* Default gap */
+  }
+
+  .allitems .card img {
+    width: 80%; /* Default image width */
+    transform: scale(.7); /* Default scale */
+  }
+}
+
+
+ /* ------------- single item --------------------- */
+ .itemPreview{
+  height: 86.3vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: -10px;
+  color: white;
+ }
+ .itemPreview .image{
+  height: 100%;
+  width: 40vw;
+  display: grid;
+  place-items: center;
+ }
+ .itemPreview .image img{
+  height: 400px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px black;
+ }
+ .itemPreview .description{
+  height: 100%;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+ }
+ .buttons{
+  margin-top: 10px;
+  height: 10%;
+ }
+ .quantityselection{
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  outline: none;
+  border-radius: 10px;
+  font-weight: bolder;
+  background-color: transparent;
+  font-size: 20px;
+  border: 2px solid rgb(255, 255, 255);
+  color: white;
+ }
+ .buttons button{
+  height: 100%;
+  width: 20%;
+  margin-left: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: large;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all .2s linear;
+ }
+ .buttons button:hover{
+  background-color: transparent;
+ }
+ .buttons .buynowbtn{
+  background-color: blue;
+  color: white;
+  border: 2px solid blue;
+ }
+ .buttons .addtocartbtn{
+  background-color: rgb(235, 255, 12);
+  border: 2px solid rgb(235, 255, 12);
+ }
+ .buttons .addtocartbtn:hover{
+  color:  rgb(235, 255, 12);
+ }
+ .buttons .buynowbtn:hover{
+    color: white;
+    border-color: white;
+ }
+ @media (max-width: 600px) {
+  .itemPreview{
+    margin-top: 50px;
+    flex-direction: column;
+  }
+  .itemPreview .image img{
+    border-radius: 10px;
+    height: 250px;
+  }
+  .itemPreview .description{
+    padding: 20px;
+    width: 100vw;
+  }
+  .buttons button{
+    width: 130px;
+    height: 50px;
+   }
+  
+}
+  /* --------------- Login Page ---------------- */
+
+/* Slow sliding gradient animation with dark colors */
+@keyframes slidingGradient {
+  0% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.loginOutLine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, #2c3e50, #34495e, #1a1a1d, #3c3f41);
+  background-size: 400% 400%;
+  animation: slidingGradient 30s ease infinite; /* Slow sliding animation */
+}
+
+.loginDiv {
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly more transparent background */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.loginDiv h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #fff;
+}
+
+.loginDiv input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #2c3e50;
+  color: white;
+  outline: none;
+}
+
+.loginDiv input:focus {
+  border-color: #3498db;
+}
+
+.loginDiv button {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.loginDiv button:hover {
+  background-color: #2980b9;
+}
+
+.loginDiv a {
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+}
+
+.loginDiv a button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.loginDiv a button:hover {
+  background-color: #c0392b;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  .loginDiv {
+    padding: 20px;
+    width: 90%;
+  }
+
+  .loginDiv h1 {
+    font-size: 20px;
+  }
+
+  .loginDiv input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .loginDiv button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Responsive for tablet */
+@media (max-width: 900px) {
+  .loginDiv {
+    padding: 25px;
+    width: 80%;
+  }
+
+  .loginDiv h1 {
+    font-size: 22px;
+  }
+
+  .loginDiv input {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .loginDiv button {
+    font-size: 15px;
+    padding: 11px;
+  }
+}
+
+/* ---------------- cart --------------- */
+
+/* Base Styling */
+.tableoutline {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: white;
+  display: grid;
+  place-content: center;
+}
+
+.errorMessage {
+  color: red;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.productstable {
+  width: 100%;
+  border-collapse: separate; /* Use separate to prevent cell borders */
+  border-spacing: 0 10px; /* Add space between rows for a cleaner look */
+  margin-bottom: 20px;
+}
+
+.productstable th, .productstable td {
+  padding: 12px 16px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.productstable th {
+  background-color: #3498db;
+  color: white;
+  border: none; /* Remove borders from table headers */
+  border-radius: 8px 8px 0 0; /* Add rounded corners for headers */
+}
+
+.productstable td {
+  background-color: #ffffff10; /* Light background for table rows */
+  color: white;
+  border: none; /* Remove borders from table cells */
+  border-radius: 5px; /* Add rounded corners for cells */
+}
+
+.productstable tbody tr {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow to rows */
+}
+
+.imageToView {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.deleteBtn {
+  padding: 6px 12px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.deleteBtn:hover {
+  background-color: #c0392b;
+}
+
+.checkoutbtn {
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.checkoutbtn:hover {
+  background-color: #2980b9;
+}
+
+/* Mobile and Tablet Adjustments */
+@media (max-width: 900px) {
+  .productstable th,.productstable td{
+    font-size: .6rem;
+  }
+  .deleteBtn{
+    font-size: .5rem;
+  }
+}
+
+
+/* ---------------- Profile ----------------- */
+
+/* Base Styling */
+.profileoutline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profileimage {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  margin-bottom: 20px;
+}
+
+h2.username {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.details input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  background-color: #fff;
+  transition: border 0.3s ease;
+}
+
+.details input:focus {
+  border-color: #3498db;
+}
+
+.updateprofile {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.updateprofile:hover {
+  background-color: #2980b9;
+}
+
+.profileoutline .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.profileoutline .buttons button {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: navy;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid white;
+}
+
+.profileoutline .buttons .passwordupdate:hover{
+  background-color: rgb(6, 6, 105);
+}
+
+.profileoutline .buttons .logOutBtn{
+  background-color: red;
+}
+
+.profileoutline .buttons .logOutBtn:hover {
+  background-color: #c0392b;
+}
+
+/* File input styling */
+input[type="file"] {
+  margin-top: 10px;
+  font-size: 16px;
+  width: 100%;
+}
+
+/* Responsive Styling for Mobile */
+@media (max-width: 600px) {
+  .profileoutline {
+    width: 90%;
+    padding: 15px;
+  }
+
+  h2.username {
+    font-size: 1.4rem;
+    color: white;
+  }
+
+  .details input {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .updateprofile {
+    font-size: 14px;
+  }
+
+  .buttons button {
+    font-size: 14px;
+  }
+
+  .profileimage {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+/* Responsive Styling for Tablet */
+@media (max-width: 900px) {
+  .profileoutline {
+    width: 80%;
+    padding: 25px;
+  }
+
+  h2.username {
+    font-size: 1.5rem;
+  }
+
+  .details input {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .updateprofile {
+    font-size: 15px;
+  }
+
+  .buttons button {
+    font-size: 15px;
+  }
+
+  .profileimage {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+
+/* ---------------- Buying ------------ */
+
+/* Base styling for the Buy component */
+.profileoutline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.checkoutoutline {
+  width: 100%;
+  max-width: 500px;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px black;
+}
+
+.addresitem {
+  margin-bottom: 20px;
+}
+
+.addresitem label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.addresitem input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  outline: none;
+}
+
+.addresitem input:focus {
+  border-color: #007bff;
+}
+
+.codoption {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.codoption{
+  color: red;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.cancel {
+  background-color: #f44336;
+  margin-top: 10px;
+}
+
+.cancel:hover {
+  background-color: #d32f2f;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For small screens (less than 600px) */
+@media (max-width: 600px) {
+  .checkoutoutline {
+    padding: 15px;
+    width: 90%;
+  }
+
+  .addresitem input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .codoption {
+    font-size: 12px;
+  }
+}
+
+/* For medium screens (600px - 900px) */
+@media (max-width: 900px) {
+  .checkoutoutline {
+    width: 80%;
+  }
+
+  .addresitem input {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  .btn {
+    font-size: 15px;
+    padding: 11px;
+  }
+
+  .codoption {
+    font-size: 13px;
+  }
+}
+
+
+/* ------------------- Password Reset --------------- */
+.passwordUpdateOutline{
+  height: 92vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: white;
+}
+.passwordUpdateOutline input{
+  width: 30%;
+  height: 8%;
+  text-align: center;
+  border: 2px solid rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  outline: none;
+}
+.passwordUpdateOutline .buttons{
+  width: 30%;
+  height: 7%;
+  display: flex;
+}
+.passwordUpdateOutline .buttons button{
+  width: 45%;
+  transition: all .2s linear;
+}
+.passwordUpdateOutline .buttons button:active{
+  transform: scale(.9);
+}
+.passwordUpdateOutline .buttons button:first-child{
+  background-color: greenyellow;
+  border: 2px solid greenyellow;
+}
+.passwordUpdateOutline .buttons button:last-child{
+  background-color: rgb(253, 49, 49);
+  border: 2px solid rgb(253, 49, 49);
+}
+.errorMessage{
+  width: 100%;
+  height: 60vh;
+  display: grid;
+  place-items: center;
+  text-transform: capitalize;
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-weight: bolder;
+  text-shadow: 2px 2px 5px red;
+} 
+.buttons{
+  justify-content: space-between;
+}
+.passwordUpdateOutline h1{
+  font-size: 1.5rem;
+}
